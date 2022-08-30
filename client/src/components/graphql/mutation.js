@@ -16,3 +16,32 @@ export const LOGIN_USER = gql`
     }
 `;
 
+export const ADD_USER = gql`
+    mutation addUser( $username: String!, $email: String!, $password: String! )
+    {
+        addUser(
+            username: $usernaem,
+            email: $email,
+            password: $password
+        )
+        {
+            token
+            user {
+                _id
+                username
+                email 
+                bookCount
+                savedBooks {
+                    bookId
+                    authors
+                    description
+                    title
+                    image
+                    link
+                }
+            }
+        }
+    }
+
+` ;
+
